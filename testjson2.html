@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche d'item</title>
+    <style>
+        #autocomplete-list {
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+        }
+        #autocomplete-list div {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        #autocomplete-list div img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        #autocomplete-list div span {
+            white-space: nowrap;
+        }
+        #autocomplete-list div:hover {
+            background-color: #e9e9e9;
+        }
+    </style>
+</head>
+<body>
+    <p id="testimg"></p>
+
+    <h1>Recherche d'item :</h1>
+
+    <form id="searchForm">
+        <label for="itemName">Nom de l'item :</label>
+        <input type="text" id="itemName" name="itemName" autocomplete="off" required>
+        <div id="autocomplete-list"></div>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <ul id="jsonValues"></ul>
+
+    <script>
+        function extractValues(itemIdToFind) {
+            fetch('amulet.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erreur HTTP! Statut : ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    var jsonValuesElement = document.getElementById("jsonValues");
+
+                    // Rechercher l'élément du tableau qui correspond au nom spécifié
+                    var selectedItem = data.find(item => item.name.toLowerCase() === itemIdToFind.toLowerCase());
+
+                    if (selectedItem) {
+                        var listItem = document.createElement("li");
+                        listItem.textContent = "";
+
+                        for (var key in selectedItem) {
+                            if (typeof selectedItem[key] === "object") {
+                                // Si la valeur est un objet, parcourir récursivement
+                                listItem.textContent += `${key}: `;
+                                for (var subKey in selectedItem[key]) {
+                                    listItem.textContent += `${subKey}: ${selectedItem[key][subKey]}, `;
+                                }
+                                listItem.textContent = listItem.textContent.slice(0, -2); // Retirer la virgule en trop
+                                listItem.textContent += "<br>";
+                            } else {
+                                listItem.textContent += `${key}: ${selectedItem[key]}<br>`;
+                            }
+                        }
+
+                        jsonValuesElement.innerHTML = ""; // Effacer le contenu précédent
+                        jsonValuesElement.appendChild(listItem);
+                    } else {
+                        console.error(`Aucun élément trouvé avec le nom : ${itemIdToFind}`);
+                        jsonValuesElement.innerHTML = ""; // Effacer le contenu précédent
+                    }
+                })
+                .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var searchForm = document.getElementById("searchForm");
+            var itemNameInput = document.getElementById("itemName");
+            var autocompleteList = document.getElementById("autocomplete-list");
+
+            itemNameInput.addEventListener("input", function () {
+                var itemName = itemNameInput.value.toLowerCase();
+                var suggestions = [];
+                
+                fetch('amulet.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Erreur HTTP! Statut : ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        suggestions = data
+                            .filter(item => item.name.toLowerCase().includes(itemName))
+                            .map(item => ({
+                                name: item.name,
+                                imgPath: item.imgPath
+                            }));
+                        updateAutocompleteList(suggestions);
+                    })
+                    .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+            });
+
+            searchForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Empêcher la soumission par défaut du formulaire
+                var itemName = itemNameInput.value;
+                extractValues(itemName);
+            });
+
+            // Fonction pour mettre à jour la liste d'autocomplétion
+            function updateAutocompleteList(suggestions) {
+                autocompleteList.innerHTML = "";
+                suggestions.forEach(item => {
+                    var suggestionItem = document.createElement("div");
+                    var img = document.createElement("img");
+                    var itemName = document.createElement("span");
+
+                    img.src = item.imgPath;
+                    itemName.textContent = item.name;
+
+                    suggestionItem.appendChild(img);
+                    suggestionItem.appendChild(itemName);
+
+                    suggestionItem.addEventListener("click", function () {
+                        itemNameInput.value = item.name;
+                        autocompleteList.innerHTML = "";
+                    });
+
+                    autocompleteList.appendChild(suggestionItem);
+                });
+            }
+
+            // Fermer la liste d'autocomplétion lorsque l'utilisateur clique en dehors
+            document.addEventListener("click", function (event) {
+                if (event.target !== itemNameInput) {
+                    autocompleteList.innerHTML = "";
+                }
+            });
+        });
+
+        var block = document.getElementById("testimg");
+
+        var url = "http://staticns.ankama.com/dofus/www/game/items/200/1230.png";
+
+        im = document.createElement("img");
+        im.src = url;
+        block.appendChild(im);
+    </script>
+
+</body>
+</html>
