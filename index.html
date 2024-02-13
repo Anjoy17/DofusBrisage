@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Recherche d'item</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <script src="script.js"></script>
+
+    <h1>Recherche d'item :</h1>
+
+    <form id="searchForm">
+        <label for="itemName">Nom de l'item :</label>
+        <input type="text" id="itemName" name="itemName" autocomplete="off" required value="" onclick="this.select();" placeholder="Rechercher un item">
+        <div id="autocomplete-list"></div>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <br>
+
+    <form onsubmit="return false;">
+        <input class="inputCoef" id="inputCoef" name="InputCoef" placeholder="Taux brisage" SIZE=26 MAXLENGTH=20 value="100" onclick="this.select();" >
+    </form>
+
+    <table id="attributsTable">
+        <!-- Le tableau sera généré ici en fonction de l'objet sélectionné -->
+    </table>
+
+    <p id = "a"></p>
+    <p id = "ok"></p>
+
+
+    <ul id="jsonValues"></ul>
+</body>
+</html>
