@@ -61,6 +61,62 @@ var poids = {
 }
 
 
+var runes = {
+    "PA" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/PA.png?raw=true",
+    "PM" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/PM.png?raw=true", 
+    "Portée" :"https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Port%C3%A9e.png?raw=true",
+    "Invocations" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Invocations.png?raw=true",
+    "Dommages" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages.png?raw=true",
+    "% Dommages d'armes" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20Dommages%20d'armes.png?raw=true",
+    "% Dommages distance" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20Dommages%20distance.png?raw=true",
+    "% Dommages mêlée" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20Dommages%20d'armes.png?raw=true",
+    "% Dommages aux sorts" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20Dommages%20aux%20sorts.png?raw=true",
+    "% Résistance distance"  : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20R%C3%A9sistance%20distance.png?raw=true",
+    "% Résistance mêlée" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20R%C3%A9sistance%20m%C3%AAl%C3%A9e.png?raw=true",
+    "Soins" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Soins.png?raw=true",
+    "% Critique" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20Critiques.png?raw=true",
+    "% Critiques" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20Critiques.png?raw=true",
+    "Renvoi de dommages" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Renvoi%20de%20dommages.png?raw=true",
+    "Retrait PM" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Retrait%20PM.png?raw=true",
+    "Retrait PA" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Retrait%20PA.png?raw=true",
+    "Esquive PM" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Esquive%20PM.png?raw=true",
+    "Esquive PA" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Esquive%20PA.png?raw=true",
+    "% Résistance Terre" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20R%C3%A9sistance%20Terre.png?raw=true",
+    "% Résistance Eau" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20R%C3%A9sistance%20Eau.png?raw=true",
+    "% Résistance Neutre" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20R%C3%A9sistance%20Neutre.png?raw=true",
+    "% Résistance Feu" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20R%C3%A9sistance%20Feu.png?raw=true",
+    "% Résistance Air" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/%25%20R%C3%A9sistance%20Air.png?raw=true",
+    "Dommages Critiques" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Critiques.png?raw=true",
+    "Dommages Terre" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Terre.png?raw=true",
+    "Dommages Eau" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Eau.png?raw=true",
+    "Dommages Neutre" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Neutre.png?raw=true",
+    "Dommages Feu" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Feu.png?raw=true",
+    "Dommages Air" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Air.png?raw=true",
+    "Dommages Pousée" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Pouss%C3%A9e.png?raw=true",
+    "Dommages Pièges" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Dommages%20Pi%C3%A8ges.png?raw=true",
+    "Arme de Chasse" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Arme%20de%20Chasse.png?raw=true",
+    "Tacle" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Tacle.png?raw=true",
+    "Fuite" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Fuite.png?raw=true",
+    "Prospection" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Prospection.png?raw=true",
+    "Sagesse" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Sagesse.png?raw=true",
+    "Puissance (pièges)" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Puissance%20(pi%C3%A8ges).png?raw=true",
+    "Puissance" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Puissance.png?raw=true",
+    "Résistance Terre": "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/R%C3%A9sistance%20Terre.png?raw=true",
+    "Résistance Eau" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/R%C3%A9sistance%20Eau.png?raw=true",
+    "Résistance Neutre" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/R%C3%A9sistance%20Neutre.png?raw=true",
+    "Résistance Feu" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/R%C3%A9sistance%20Feu.png?raw=true",
+    "Résistance Air" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/R%C3%A9sistance%20Air.png?raw=true",
+    "Résistance Critiques" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/R%C3%A9sistance%20Critiques.png?raw=true",
+    "Résistance Poussée" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/R%C3%A9sistance%20Pouss%C3%A9e.png?raw=true",
+    "Force" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Force.png?raw=true",
+    "Intelligence" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Intelligence.png?raw=true",
+    "Chance" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Chance.png?raw=true",
+    "Agilité" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Agilit%C3%A9.png?raw=trues",
+    "Pods" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Pods.png?raw=true",
+    "Vitalité" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Vitalit%C3%A9.png?raw=true",
+    "Initiative" : "https://github.com/Anjoy17/DofusBrisage/blob/main/assets/rune/Initiative.png?raw=true",
+}
+
 
 //Fonction pour extraire la data des items du json
 function extractValues(itemIdToFind) {
@@ -187,7 +243,7 @@ function extractValues(itemIdToFind) {
                         }
                     }
 
-                    var rune = "./assets/rune/" + res3 + ".png";
+                    var rune = runes[res3];
 
                     focus1 = listeStat1[i-notStat] + sum1 * 0.5; //calcul des stats avec focus
                     focus2 = listeStat2[i-notStat] + sum2 * 0.5;
